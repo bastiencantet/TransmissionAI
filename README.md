@@ -1,25 +1,34 @@
-# TransmissionAI
+# TransmissionAI (Next.js)
 
-A tiny browser-first MVP that loads a local LLM using your GPU via WebGPU.
+Version migrée vers **Next.js** avec une interface plus claire:
 
-## Run locally
+- États de chargement visibles (app, modèle, génération).
+- Panneau de logs détaillé dans l'UI.
+- Logs également envoyés dans la console navigateur.
+- Intégration `@xenova/transformers` pour le mode WebGPU local.
 
-Because this app uses ES modules, serve it over HTTP:
+## Installation
 
 ```bash
-python3 -m http.server 8000
+npm install
 ```
 
-Then open <http://localhost:8000>.
+## Développement
 
-## What it does
+```bash
+npm run dev
+```
 
-- Renders a chat interface in the browser.
-- Loads `nvidia/nemotron-3-nano-4b` using `@xenova/transformers`.
-- Runs inference client-side on WebGPU (no backend required).
+Puis ouvrir <http://localhost:3000>.
+
+## Build de production
+
+```bash
+npm run build
+npm start
+```
 
 ## Notes
 
-- Browser WebGPU support is required (latest Chrome/Edge recommended).
-- First load can take a while because model files are downloaded to browser cache.
-- If the selected model format is unsupported by `transformers.js`, loading will fail with an on-screen error.
+- WebGPU est requis pour charger le modèle dans le navigateur.
+- Le premier chargement du modèle peut être long (cache navigateur).
