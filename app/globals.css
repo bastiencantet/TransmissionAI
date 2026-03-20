@@ -1,0 +1,143 @@
+:root {
+  color-scheme: dark;
+  --bg: #070b18;
+  --panel: #111a34;
+  --border: #2b3f7d;
+  --text: #eef3ff;
+  --muted: #9fb0e2;
+  --accent: #5c8dff;
+  --success: #2ec489;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 20% -10%, #253874 0%, var(--bg) 48%);
+}
+
+.page {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.panel {
+  background: color-mix(in srgb, var(--panel) 88%, black);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.header p,
+.logs-caption,
+.status {
+  color: var(--muted);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.controls .status {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea,
+button {
+  border: 1px solid #30488e;
+  background: #0d1530;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(180deg, #6998ff, #4d78e6);
+  color: #fff;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.chat {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-height: 360px;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.message {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 10px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: #274494;
+}
+
+.message.assistant {
+  background: #1b2a59;
+}
+
+.message.loading {
+  border: 1px dashed #6e8fe8;
+}
+
+.composer {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.logs {
+  max-height: 70vh;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0b1228;
+  padding: 0.75rem;
+}
+
+.logs p {
+  margin: 0 0 0.4rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  color: #c8d4fb;
+}
+
+@media (max-width: 960px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .composer,
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
