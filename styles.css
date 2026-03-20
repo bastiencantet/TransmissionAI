@@ -1,0 +1,111 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --bg: #0b1020;
+  --panel: #151b32;
+  --muted: #8f9ac7;
+  --text: #e9ecff;
+  --accent: #5b8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 30% -10%, #1f2d69, var(--bg) 45%);
+  color: var(--text);
+}
+
+.app {
+  width: min(900px, 100% - 2rem);
+  margin: 2rem auto;
+  background: color-mix(in srgb, var(--panel) 88%, black);
+  border: 1px solid #2b355f;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 0.4rem 0 1rem;
+  color: var(--muted);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+button {
+  border-radius: 10px;
+  border: 1px solid #2d3a69;
+  padding: 0.65rem 0.8rem;
+  background: #0d142f;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  border-color: #7ea2ff;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#status {
+  color: var(--muted);
+}
+
+.chat {
+  border: 1px solid #2b355f;
+  border-radius: 12px;
+  min-height: 360px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0.75rem;
+  background: #0b122b;
+}
+
+.message {
+  margin: 0.6rem 0;
+  padding: 0.7rem;
+  border-radius: 10px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  background: #2f3e78;
+}
+
+.message.assistant {
+  background: #1f2a52;
+}
+
+.composer {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.6rem;
+}
+
+@media (max-width: 720px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
